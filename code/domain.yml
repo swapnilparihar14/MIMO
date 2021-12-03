@@ -1,0 +1,255 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- email_id:
+    use_entities: true
+- phone_number:
+    use_entities: true
+- options:
+    use_entities: true
+- city:
+    use_entities: true
+- anonymous:
+    use_entities: true
+- walk:
+    use_entities: true
+- mood_happy:
+    use_entities: true
+- ask_email:
+    use_entities: true
+- name:
+    use_entities: true
+- find_doctor:
+    use_entities: true
+- not_walk:
+    use_entities: true
+- depression:
+    use_entities: true
+- photo:
+    use_entities: true
+- reading:
+    use_entities: true
+- yoga:
+    use_entities: true
+- excercise:
+    use_entities: true
+- yoga_score:
+    use_entities: true
+- photos_score:
+    use_entities: true
+- reading_score:
+    use_entities: true
+- walk_score:
+    use_entities: true
+- start_form:
+    use_entities: true
+- talk:
+    use_entities: true
+- feelings:
+    use_entities: true
+entities:
+- name
+- phone_number
+- email
+- city
+- anonymity
+- City
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  phone_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  city:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  anonymity:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! I am Mimo, a Mental Health Support Bot. I can be your close friend and confidant.
+  utter_warning:
+  - text: But if this is a medical emergency, please dial 911 immediately or go to the nearest emergency room.
+  utter_ask_Anonymity:
+  - buttons:
+    - payload: /options{{"anonymity":"Yes"}}
+      title: Yes
+    - payload: /ask_email{{"anonymity":"No"}}
+      title: No
+    text: I would like to know a little bit about you. But I value your privacy and wouldn't mind if you wish to go anonymous. Would you like to go anonymous?
+  utter_request:
+  - text: Before we proceed can you tell me your email id?
+  utter_options:
+  - text: |
+      Here are a list of things I can help you with
+        1. Help diagnose if you have depression.
+        2. Help you connect with experienced professionals in your area.
+        3. Listen to you as a friend and help suggest constructive methods to mitigate your problems
+        4. Suggest actions to mitigate and help resolve the issues like yoga, walking, reading and sharing cute photos.
+  utter_ask_form_user_info_name:
+  - text: Please provide your full name.
+  utter_email:
+  - text: Please provide your email id.
+  utter_hi_name:
+  - text: Hi {name}, please provide the name of th city you live in.
+  utter_form_ask_email_email:
+  - text: Please provide your email id.
+  utter_ask_form_user_info_phone_number:
+  - text: Please provide your phone number.
+  utter_ask_form_user_info_city:
+  - text: Please provide your the name of the city you live in.
+  utter_ask_form_ask_city_city:
+  - text: Please provide your the name of the city to search for the details.
+  utter_ask_form_ask_city2_city:
+  - text: Please provide your the name of the city to search for the details.
+  utter_ask_form_ask_feelings_feelings:
+  - text: Okay, So I would like to you to tell me what you are going through? It can be last couple of days or months or years. Feel free to let all your emotions out.
+  utter_cheer_up:
+  - image: https://i.imgur.com/SDVEO9R.jpg
+    text: 'Here is something to cheer you up:'
+  - image: https://i.imgur.com/vNDQsb2.jpg
+    text: 'Here is something to cheer you up:'
+  - image: https://i.imgur.com/MbHBrAC.jpg
+    text: 'Here is something to cheer you up:'
+  - image: https://i.imgur.com/08RUAGI.jpg
+    text: 'Here is something to cheer you up:'
+  - image: https://i.imgur.com/CnoZs9D.jpg
+    text: 'Here is something to cheer you up:'
+  - image: https://i.imgur.com/vjud4IJ.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_sorry_to_hear:
+  - text: Sorry to hear that.
+  utter_goodbye:
+  - text: Bye
+  - text: Ok then! Have a nice day!
+  utter_cheer:
+  - text: How about I cheer you up with this photo
+  utter_chitchat:
+  - text: Hope that helps. Do you want any further help.
+  utter_thanks:
+  - text: Thanks for your input
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_book_name:
+  - text: How about reading ‘Girl, Stop Apologizing,’ by Rachel Hollis
+  - text: How about reading ‘My Life on the Road,’ by Gloria Steinem
+  - text: How about reading ‘Ruth Bader Ginsburg A Life,’ by Jane Sherron De Hart
+  - text: How about reading ‘Very Good Lives,’ by J.K. Rowling
+  - text: How about reading ‘Dare to Lead,’ by Brené Brown
+  - text: How about reading ‘Men Explain Things to Me,’ by Rebecca Solnit
+  - text: How about reading ‘The Freedom Writers Diary,’ by The Freedom Writers and Erin Gruwell
+  - text: How about reading ‘The Story of My Life,’ by Helen Keller
+  - text: How about reading ‘I Know Why the Caged Bird Sings,‘ by Maya Angelou
+  utter_default:
+  - text: Sorry, I did not understand. Can you rephrase?
+  utter_meet:
+  - text: Let's smile at people and make other people happy. That's the secret, make other happy to be happy.
+  utter_yoga:
+  - text: Okay, Let's practise with [Tanvi](https://www.youtube.com/watch?v=dofYPqKzldk&ab_channel=TanvitheFitGrit)
+  - text: Okay, Let's practise with [Adriene](https://www.youtube.com/watch?v=F47hdaNXwT4&ab_channel=YogaWithAdriene)
+  - text: Okay, Let's practise with [Christina](https://www.youtube.com/watch?v=dOvjT3ZSUBA&ab_channel=YogaWithChristina-ChriskaYoga)
+  - text: Okay, Let's practise with [Tom Barber](https://www.youtube.com/watch?v=PRNrLelTBbo&ab_channel=TomBarberYoga)
+actions:
+- action_walk_weather
+- action_extract_emotion
+- action_verify_user
+- action_verify_phone
+- action_verify_name
+- action_verify_city
+- action_add_user
+- action_get_doctor
+- validate_form_ask_feelings
+- action_update_walk
+- action_update_read
+- action_update_photo
+- action_update_yoga
+- action_get_photo
+- action_get_read
+- action_get_yoga
+- action_get_walk
+forms:
+  form_ask_email:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+  form_user_info:
+    required_slots:
+      city:
+      - entity: city
+        type: from_entity
+      name:
+      - entity: name
+        type: from_entity
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+  form_ask_city:
+    required_slots:
+      city:
+      - entity: city
+        type: from_entity
+  form_ask_city2:
+    required_slots:
+      city:
+      - entity: city
+        type: from_entity
+  form_ask_ano:
+    required_slots:
+      anonymity:
+      - entity: anonymity
+        type: from_entity
+  form_ask_ano_two:
+    required_slots:
+      anonymity:
+      - entity: anonymity
+        type: from_entity
+  form_ask_ano_three:
+    required_slots:
+      anonymity:
+      - entity: anonymity
+        type: from_entity
+  form_ask_feelings: null
+e2e_actions: []

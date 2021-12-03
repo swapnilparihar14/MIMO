@@ -1,0 +1,245 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Tell walking score
+  steps:
+  - intent: walk_score
+  - action: action_get_walk
+
+- rule: Tell reading score
+  steps:
+  - intent: reading_score
+  - action: action_get_read
+
+- rule: Tell yoga score
+  steps:
+  - intent: yoga_score
+  - action: action_get_yoga
+
+- rule: Tell photo score
+  steps:
+  - intent: photos_score
+  - action: action_get_photo
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: check weather
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: Directly give options to the user
+  steps:
+  - intent: options
+  - action: utter_options
+
+- rule: Ask for an email
+  steps:
+  - intent: ask_email
+  - action: utter_request
+  - action: form_ask_email
+  - active_loop: form_ask_email
+
+
+
+
+- rule: Submit the email form from the user
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_email
+  steps:
+  # Form is deactivated
+  - action: form_ask_email
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_verify_name
+  - action: action_verify_city
+  - action: action_verify_phone
+  - action: form_user_info
+  - active_loop: form_user_info
+
+- rule: Save the data in database
+  condition:
+  # Condition that form is active.
+  - active_loop: form_user_info
+  steps:
+  # Form is deactivated
+  - action: form_user_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_thanks
+  - action: action_add_user
+  - action: utter_options
+
+- rule: Trigger walk
+  steps:
+  - intent: walk
+  - action: form_ask_city2
+  - active_loop: form_ask_city2
+
+
+
+- rule: Trigger walk
+  steps:
+  - intent: not_walk
+  - action: utter_sorry_to_hear
+  - action: utter_options
+
+
+- rule: Trigger depression analyzer
+  steps:
+  - intent: depression
+  - action: utter_ask_form_ask_feelings_feelings
+  - action: action_listen
+  - action: form_ask_feelings
+  - active_loop: form_ask_feelings
+
+
+- rule: Identifying more depression
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_feelings
+  steps:
+  # Form is deactivated
+  - action: form_ask_feelings
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: validate_form_ask_feelings
+  - action: action_extract_emotion
+
+- rule: Trigger find professionals
+  steps:
+  - intent: find_doctor
+  - action: form_ask_city
+  - active_loop: form_ask_city
+
+
+
+- rule: Finding doctors
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_city
+  steps:
+  # Form is deactivated
+  - action: form_ask_city
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_get_doctor
+  - action: utter_chitchat
+  - action: utter_options
+
+- rule: Walk rules
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_city2
+  steps:
+  # Form is deactivated
+  - action: form_ask_city2
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_walk_weather
+  - intent: affirm
+  - action: utter_meet
+  - action: utter_chitchat
+  - action: utter_options
+  - action: action_update_walk
+
+- rule: Good reading
+  steps:
+  - intent: reading
+  - action: utter_book_name
+  - action: utter_did_that_help
+  - action: form_ask_ano_three
+  - active_loop: form_ask_ano_three
+
+- rule: Reading rules
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_ano_three
+  steps:
+  # Form is deactivated
+  - action: form_ask_ano_three
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - intent: affirm
+  - action: action_update_read
+  - action: utter_options
+
+- rule: Good Yoga
+  steps:
+  - intent: excercise
+  - action: utter_yoga
+  - action: utter_did_that_help
+  - action: form_ask_ano_two
+  - active_loop: form_ask_ano_two
+
+
+
+
+- rule: Yoga rules
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_ano_two
+  steps:
+  # Form is deactivated
+  - action: form_ask_ano_two
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - intent: affirm
+  - action: action_update_yoga
+  - action: utter_options
+
+- rule: Good photo
+  steps:
+  - intent: photo
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - action: form_ask_ano
+  - active_loop: form_ask_ano
+
+- rule: Photo rules
+  condition:
+  # Condition that form is active.
+  - active_loop: form_ask_ano
+  steps:
+  # Form is deactivated
+  - action: form_ask_ano
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - intent: affirm
+  - action: action_update_photo
+  - action: utter_options
+
+
+- rule: Deny returm to options
+  steps:
+  - intent: deny
+  - action: utter_sorry_to_hear
+  - action: utter_options

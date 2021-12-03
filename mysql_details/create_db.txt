@@ -1,0 +1,30 @@
+-- Create a new DB schema
+CREATE DATABASE IF NOT EXISTS Rasa_Patient_DB;
+USE Rasa_Patient_DB;
+
+-- Create the table for the new database
+DROP TABLE IF EXISTS patient_records;
+CREATE TABLE IF NOT EXISTS patient_records (
+    patient_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(20),
+    patient_name VARCHAR(255),
+    address VARCHAR(500),
+    photos INT DEFAULT 0,
+    walk INT DEFAULT 0,
+    yoga INT DEFAULT 0,
+    reading INT DEFAULT 0
+);
+
+-- Create the Doctor records
+DROP TABLE IF EXISTS doctor_records;
+CREATE TABLE IF NOT EXISTS doctor_records (
+    doctor_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    doctor_name VARCHAR(255) NOT NULL,
+    address VARCHAR(500) NOT NULL,
+    city VARCHAR(100) NOT NULL
+);
+-- Show Current state of the Patient Records table
+SELECT * FROM doctor_records;

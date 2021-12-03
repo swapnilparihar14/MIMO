@@ -1,0 +1,245 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - what's up
+    - Hello!!
+    - Hi
+- intent: walk
+  examples: |
+    - I want to go for a walk
+    - I should go for a walk
+    - I would prefer going for a walk
+    - I select walk
+    - One
+    - walk
+    - Lets go for a walk
+    - how about walking
+    - I want to go walking
+    - I would like to go for a walk
+- intent: not_walk
+  examples: |
+    - I dont want to go for a walk
+    - I should not go for a walk
+    - I cannot go for a walk
+    - I would prefer not to go for a walk
+    - I dont select walk
+    - Not one
+    - not walking
+- intent: find_doctor
+  examples: |
+    - I want to find a doctor in my area
+    - I want to find a doctor in [San Jose](city)
+    - I want to connect to a doctor
+    - I want to connect to a doctor in [New York](city)
+    - Find me a doctor
+    - Find me a doctor in [Salt City](city)
+    - I want to connect with medical professionals
+    - I want to connect with experienced professionals
+    - Connect me with professionals
+    - I want to contact experienced professionals
+    - Yes, would like medical consultation
+    - I would like to connect to a doctor
+- intent: anonymous
+  examples: |
+    - I want to go anonymous{"entity": "anonymity", "value": "Yes"}
+    - I don't want to go anonymous{"entity": "anonymity", "value": "No"}
+    - I prefer anonymity{"entity": "anonymity", "value": "Yes"}
+- intent: email_id
+  examples: |
+    - [abc@gmail.com](email)
+    - [abc@yourdomain](email)
+    - [xyz@gmail.com](email)
+    - Email id is [xyz@gmail.com](email)
+    - Email is [abc@yourdomain](email)
+    - [swapnil.parihars@gmail.com](email)
+- intent: ask_email
+  examples: |
+    - This is a default intent for button
+    - This is default intent
+    - So if you dont have any intent buttion
+- intent: phone_number
+  examples: |
+    - my cell phone is [160-123-4567](phone_number)
+    - my phone number is [161-987-6543](phone_number)
+    - you can reach me under [151-123-4567](phone_number)
+    - call me under [0167-876-5432](phone_number)
+    - [167-876-5432](phone_number)
+    - [669-231-9877](phone_number)
+    - [167 876 5432](phone_number)
+    - [669 231 9877](phone_number)
+    - [1678765432](phone_number)
+    - [6692319877](phone_number)
+- intent: options
+  examples: |
+    - What can you do?
+    - What are you capable of?
+    - What are the things you can help me with?
+    - What are the list of options you can help me with?
+- intent: depression
+  examples: |
+    - Help me diagnose my depression
+    - I need to find if I am depressed or not?
+    - Am I depressed ?
+    - I need to know if I am depressed?
+    - I dont know if I am depressed or not?
+    - I dont know if I am depressed
+    - Am I depressed
+    - I dont know if I am sad
+    - I am very sad
+    - I am not even happy
+    - I am angry
+    - I did this I did that. My father is angry at me
+    - I am scared and I alone
+    - I miss my mother
+    - I miss my sister
+    - I want talk about my feeling?
+    - Can I confide in you?
+    - I want to be your friend
+    - I would like to take to you
+    - I want to express myself
+    - I want to tell you something
+    - I want you to listen to me
+    - Can you listen to me
+
+- intent: photo
+  examples: |
+    - I want to see cute animal photos
+    - I want to see photo
+    - I want to see more photos
+    - More photos
+    - Cute animals pics
+    - Animal pics
+    - I want to see pics
+    - I want to see cute pica
+    - more photos
+    - I want to see cute photos
+    - I would like to see cute animal pics
+    - I like to take a photo
+- intent: name
+  examples: |
+    - My name is [John Smith](name)
+    - My name is [Ashleigh Mees](name)
+    - My name is [chelsea](name)
+    - My name is [jessie maglione](name)
+    - This is [Kim](name)
+    - This is [Norma Taylor](name)
+    - [Matt Dameon](name) is my name
+    - my name's [Michael](name)
+    - name is [Steve austin](name)
+    - myself [Harhsal Metha](name)
+    - [Michele Perry](name)
+    - [Michelle Garcia](name)
+    - [Michelle Vinion](name)
+    - [Mr. Sweney](name)
+    - [Jamie Moore](name)
+    - [Jane](name)
+    - [John](name)
+    - [Swap](name)
+    - [Swapnil](name)
+    - [shweta](name)
+    - [shww](name)
+    - [shweta k](name)
+    - [Jorjeta Jetcheva](name)
+    - [Suriya Palanikumar](name)
+- intent: city
+  examples: |
+    - My city is [San Jose](city)
+    - [San Jose](city)
+    - It's [Jersey](city)
+    - [San Joe](city)
+    - [New York](city)
+    - [Okland](city)
+    - My city is [Hobokane](City)
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Thanks bye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - okay
+    - sure okay
+    - Yes, it did
+    - Sure
+    - yes, sure
+    - Okay sure
+    - okay sure
+    - Yes it did
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - maybe
+    - I am not sure
+- intent: reading
+  examples: |
+    - I want to read a book
+    - Suggest me a book
+    - Can you suggest a good self help book
+    - I want to read a self help book
+    - I want some reading material
+    - Read a book
+    - Suggest good books to read
+    - I want to read books
+- intent: excercise
+  examples: |
+    - I want to do Yoga
+    - How about I do some yoga
+    - yoga it is
+    - I like to exercise
+    - How about I excercise
+    - I like to excercise
+    - Excercise
+    - Yoga
+    - I would like to do yoga
+    - I want to do yoga
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: start_form
+  examples: |
+    - I wanted to give my details
+    - I am already a user
+- synonym: Ashish
+  examples: |
+    - ashish
+- synonym: Harsh
+  examples: |
+    - harsh
