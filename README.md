@@ -24,7 +24,7 @@ Please follow the steps below to recreate the project:
 2. Create an [new environment](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
 3. Install the requirements.txt file. [Command](https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from)
 4. Now before we set up Rasa, we need to first make sure that we are able to connect with our MySQL database. Currently the project is hosted on AWS RDS and you need to place the connections.py share in the code/actions folder to ensure connection is established. The file is sent seperately via mail and is also available in Project submission but not shared in the repo for security reasons.
-5. Instead of step 4, One can also create their own local database by using the Readme.md file shared here for steps.
+5. Instead of step 4, One can also create their own local database by using the [Readme.md](https://github.com/swapnilparihar14/MIMO/tree/main/mysql_details) file shared here for steps.
 6. Now we can start rasa in local mode by first enabling the action server by using the command: rasa run actions
 7. Then we can start Rasa-X interactive GUI by running the command in another terminal in the same environment: rasa x
 
