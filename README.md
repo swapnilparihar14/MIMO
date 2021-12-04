@@ -30,8 +30,7 @@ Please follow the steps below to recreate the project:
 
 If you face any installation issues please feel free to contact me at swapnilavinash.parihar@sjsu.edu
 
-The project demo link video can be accessed here. 
-
+The project demo link video can be accessed [here](https://youtu.be/MjXpuRhXfPM).
 ## Implementation Snippets
 Snippets shown below give you examples of what data should be feed to the chatbot and its expected response. It is one complete happy sequence of input data. But a lot of variations of it can happen on runtime.
 
