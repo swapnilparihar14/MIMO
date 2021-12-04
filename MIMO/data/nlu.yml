@@ -131,30 +131,19 @@ nlu:
     - I like to take a photo
 - intent: name
   examples: |
-    - My name is [John Smith](name)
-    - My name is [Ashleigh Mees](name)
-    - My name is [chelsea](name)
-    - My name is [jessie maglione](name)
+    - My name is [John](name)
     - This is [Kim](name)
-    - This is [Norma Taylor](name)
-    - [Matt Dameon](name) is my name
-    - my name's [Michael](name)
-    - name is [Steve austin](name)
-    - myself [Harhsal Metha](name)
-    - [Michele Perry](name)
-    - [Michelle Garcia](name)
-    - [Michelle Vinion](name)
-    - [Mr. Sweney](name)
-    - [Jamie Moore](name)
+    - name is [Steve](name)
+    - myself [Harhsal](name)
+    - [Michele](name)
     - [Jane](name)
-    - [John](name)
-    - [Swap](name)
     - [Swapnil](name)
-    - [shweta](name)
+    - It is [shweta](name)
     - [shww](name)
-    - [shweta k](name)
-    - [Jorjeta Jetcheva](name)
-    - [Suriya Palanikumar](name)
+    - [shweta](name)
+    - [Jorjeta](name)
+    - [Suriya](name)
+
 - intent: city
   examples: |
     - My city is [San Jose](city)
@@ -233,6 +222,35 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: yoga_score
+  examples: |
+    - what is my yoga score?
+    - What is my yoga rank?
+    - How many yoga points do I have?
+    - what is my excercise score?
+    - What is my excercise rank?
+    - How many excercise points do I have?
+
+- intent: walk_score
+  examples: |
+    - what is my walking score?
+    - What is my walking rank?
+    - How many walk points do I have?
+
+- intent: reading_score
+  examples: |
+    - what is my reading score?
+    - What is my reading rank?
+    - How many reading points do I have?
+
+- intent: photos_score
+  examples: |
+    - what is my picture score?
+    - What is my picture rank?
+    - How many picture points do I have?
+    - what is my pics score?
+    - What is my pics rank?
+    - How many pics points do I have?
 - intent: start_form
   examples: |
     - I wanted to give my details

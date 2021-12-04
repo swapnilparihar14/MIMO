@@ -125,7 +125,7 @@ responses:
         3. Listen to you as a friend and help suggest constructive methods to mitigate your problems
         4. Suggest actions to mitigate and help resolve the issues like yoga, walking, reading and sharing cute photos.
   utter_ask_form_user_info_name:
-  - text: Please provide your full name.
+  - text: Please provide your first name without any spaces.
   utter_email:
   - text: Please provide your email id.
   utter_hi_name:

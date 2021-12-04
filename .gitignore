@@ -113,6 +113,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+MIMO/actions/connections.py
+MIMO/venv
 
 # Spyder project settings
 .spyderproject
